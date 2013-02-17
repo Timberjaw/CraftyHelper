@@ -50,6 +50,9 @@ class HelperServer implements Runnable
                     case Commands.GETIP:
                         out.write(this.prepOutput(ch.cmdGetPlayerIp(line)));
                     break;
+                    case Commands.GETPLAYERPOS:
+                        out.write(this.prepOutput(ch.cmdGetPlayerPos(line)));
+                    break;
                     case Commands.ECHO:
                     default:
                         out.write(this.prepOutput("ECHO "+line));

@@ -92,4 +92,15 @@ public class CraftyHelper extends JavaPlugin {
         return "Could not find player "+name;
 	}
 	
+	protected String cmdGetPlayerPos(String name) {
+        Player p = server.getPlayer(name);
+        
+        if(p != null)
+        {
+            return p.getLocation().getWorld().getName()+","+p.getLocation().getX()+","+p.getLocation().getY()+","+p.getLocation().getZ();
+        }
+        
+        return "?,?,?";
+    }
+	
 }
