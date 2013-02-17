@@ -21,6 +21,7 @@ public class CraftyHelper extends JavaPlugin {
 	private Logger log;
 	private HelperServer hs;
 	private Server server;
+	private PerformanceMonitor pf;
 
 	public CraftyHelper()
 	{
@@ -45,6 +46,9 @@ public class CraftyHelper extends JavaPlugin {
 		
 		// Start helper server
 		hs = new HelperServer(this);
+		
+		// Start performance monitor
+		pf = new PerformanceMonitor();
 		
 		Thread thread = new Thread(hs, "HelperServer");
         thread.start();
@@ -102,5 +106,19 @@ public class CraftyHelper extends JavaPlugin {
         
         return "?,?,?";
     }
+	
+	protected String cmdGetPerfStats() {
+	 // Get RAM usage
+        String mem = Long.toString(PerformanceMonitor.memoryUsed()/1024/1024);
+        String memMax = Long.toString(PerformanceMonitor.memoryAvailable()/1024/1024);
+        
+        // Get thread count
+        int threads = PerformanceMonitor.threadsUsed();
+        
+        // Get CPU usage
+        String cpu = Double.toString(pf.getCpuUsage());
+        
+        return mem + ":" + memMax + ":" + cpu + ":" + threads;
+	}
 	
 }

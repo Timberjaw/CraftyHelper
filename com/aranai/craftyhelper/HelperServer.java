@@ -47,6 +47,9 @@ class HelperServer implements Runnable
                     case Commands.GETVERSION:
                         out.write(this.prepOutput(ch.cmdGetVersion()));
                     break;
+                    case Commands.GETPERFSTATS:
+                        out.write(this.prepOutput(ch.cmdGetPerfStats()));
+                    break;
                     case Commands.GETIP:
                         out.write(this.prepOutput(ch.cmdGetPlayerIp(line)));
                     break;
