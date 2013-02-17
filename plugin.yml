@@ -1,0 +1,4 @@
+name: CraftyHelper
+main: com.aranai.craftyhelper.CraftyHelper
+version: 0.1
+commands:

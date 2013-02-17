@@ -1,0 +1,8 @@
+package com.aranai.craftyhelper;
+
+public class Commands {
+    public final static byte ECHO = 0;
+    public final static byte GETPLAYERLIST = 10;
+    public final static byte GETVERSION = 20;
+    public final static byte GETIP = 30;
+}
